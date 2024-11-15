@@ -1,0 +1,50 @@
+/* src/books.css */
+.book-container{
+    padding: 0 5%;
+}
+
+.p-splitter {
+    border: none;
+    padding: 1em 1em 0 1em;
+}
+.p-splitter .p-splitter-gutter {
+    margin-left: 1em;
+}
+
+.p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle{
+    display: none;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+}
+.add-export-button{
+    display: flex;
+    gap: 10px;
+}
+.export-buttons{
+    gap: 10px;
+    display: flex;
+}
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .p-splitter .p-splitter-gutter{
+        display: none;
+    }
+    .header-bar{
+        flex-wrap: wrap;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 450px) {
+    .p-splitter {
+        border: none;
+        padding: 1em 0;
+    }
+}
+

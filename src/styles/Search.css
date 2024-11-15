@@ -1,0 +1,22 @@
+.search-input-group {
+    display: flex;
+    align-items: center;
+    max-width: 500px; /* Set a max width for the group */
+    width: 100%; /* Full width for responsiveness */
+}
+
+.p-inputgroup {
+    width: 100%; /* Ensure the input group takes full width */
+}
+
+.tiny-dropdown {
+    width: auto; /* Adjusts to fit the label width */
+    min-width: 50px;
+    max-width: 110px;
+}
+
+@media (max-width: 768px) {
+    .search-bar{
+        margin-top: 10px;
+    }
+}

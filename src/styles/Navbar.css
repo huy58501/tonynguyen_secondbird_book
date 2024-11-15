@@ -1,0 +1,64 @@
+/* Basic Reset */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+/* Logo styling */
+.navbar .logo h2 {
+    font-size: 2.5rem; /* Large text */
+    font-weight: 800; /* Make the logo bold */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Increase letter spacing */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Stronger shadow for the logo */
+    background: linear-gradient(90deg, #a8e6cf, #d4f1a2); /* Light green gradient for the text */
+    background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make text transparent to show the gradient */
+    animation: flashColor 2s infinite alternate, moveGradient 3s infinite linear; /* Apply both animations */
+}
+
+/* Flash and color transition animation */
+@keyframes flashColor {
+    0% {
+        color: #a8e6cf; /* Start with a soft light green color */
+        text-shadow: 0 0 10px rgba(144, 238, 144, 0.8); /* Glowing effect */
+    }
+    50% {
+        color: #d4f1a2; /* Midway, change to a soft yellowish-green */
+        text-shadow: 0 0 20px rgba(173, 255, 47, 0.8); /* Stronger glow effect */
+    }
+    100% {
+        color: #a8e6cf; /* End with a soft light green */
+        text-shadow: 0 0 30px rgba(144, 238, 144, 0.8); /* Stronger glowing effect */
+    }
+}
+
+/* Gradient move animation */
+@keyframes moveGradient {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center; /* Move gradient from left to right */
+    }
+}
+
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar .logo h2 {
+        font-size: 2rem; /* Slightly smaller logo on smaller screens */
+    }
+}
