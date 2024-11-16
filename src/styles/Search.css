@@ -3,18 +3,24 @@
     align-items: center;
     max-width: 500px; /* Set a max width for the group */
     width: 100%; /* Full width for responsiveness */
+    gap: 10px;
 }
-
 .p-inputgroup {
     width: 100%; /* Ensure the input group takes full width */
 }
-
 .tiny-dropdown {
     width: auto; /* Adjusts to fit the label width */
     min-width: 50px;
     max-width: 110px;
 }
-
+.search-bar .p-button-search{
+    background: #80e6c1;
+    border: none;
+}
+.search-bar .p-button-cancel{
+    background: #e35242;
+    border: none;
+}
 @media (max-width: 768px) {
     .search-bar{
         margin-top: 10px;

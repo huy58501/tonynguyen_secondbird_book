@@ -3,6 +3,7 @@ import { Button } from 'primereact/button';
 import { Tooltip } from 'primereact/tooltip';
 import { Book } from '../config/Book';
 import { saveAs } from 'file-saver';
+import "../styles/Export.css";
 import autoTable from 'jspdf-autotable';
 import 'xlsx';  // Ensure the library is loaded
 import jsPDF from "jspdf";

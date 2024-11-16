@@ -10,11 +10,15 @@ type SearchProps = {
     onSearch: (filteredBooks: Book[]) => void;
 };
 
+type SearchOption = {
+    name: string;
+};
+
 const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [selectedSearch, setSelectedSearch] = useState<string>("All");
+    const keyword = searchTerm.toLowerCase();
 
-    // Options for search filter
     const searchMenu = [
         { name: 'All', code: 'All' },
         { name: 'ID', code: 'ID' },
@@ -25,15 +29,12 @@ const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
         { name: 'ISBN', code: 'ISBN' },
     ];
 
-    // Format date to yyyy-mm-dd
     const formatDate = (dateString: string) => {
         const date = new Date(dateString);
-        return date.toISOString().split('T')[0]; // Return date in yyyy-mm-dd format
+        return date.toISOString().split('T')[0]; // Format as yyyy-mm-dd
     };
 
-    // Handle search filtering
     const handleSearch = () => {
-        const keyword = searchTerm.toLowerCase();
         const filtered = books.filter((book) => {
             return (
                 String(book.EntryID).toLowerCase().includes(keyword) ||
@@ -45,9 +46,8 @@ const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
             );
         });
 
-        const selectedSearchName = selectedSearch;
+        const selectedSearchName = (selectedSearch as unknown as SearchOption).name;
 
-        // Filter by selected search criteria
         if (selectedSearchName === 'ID') {
             onSearch(filtered.filter((book) => String(book.EntryID).toLowerCase().includes(keyword)));
         } else if (selectedSearchName === 'Title') {
@@ -63,14 +63,17 @@ const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
         } else if (selectedSearchName === 'ISBN') {
             onSearch(filtered.filter((book) => String(book.ISBN).toLowerCase().includes(keyword)));
         } else {
-            onSearch(filtered); // Default search for all fields
+            onSearch(filtered);
         }
     };
+
+    const clearSearch = () => {
+        setSearchTerm('');
+    }
 
     return (
         <div className="search-bar">
             <div className="p-inputgroup flex-1 search-input-group">
-                {/* Dropdown for selecting search filter */}
                 <Dropdown 
                     value={selectedSearch} 
                     onChange={(e) => setSelectedSearch(e.value)} 
@@ -79,16 +82,13 @@ const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
                     placeholder="ALL"
                     className="tiny-dropdown" 
                 />
-                
-                {/* Search input */}
                 <InputText
                     placeholder="Enter search here"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                
-                {/* Search button */}
-                <Button icon="pi pi-search" className="p-button-warning" onClick={handleSearch} />
+                <Button icon="pi pi-search" className="p-button-search" onClick={handleSearch} />
+                <Button icon="pi pi-trash" className="p-button-cancel" onClick={clearSearch} />
             </div>
         </div>
     );

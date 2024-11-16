@@ -3,12 +3,12 @@
 }
 
 .add-book-container .p-button {
-    background: #ff6f61; 
+    background: #3fb086; 
     border: none;
 }
 
 .add-book-container .p-button:hover{
-    color: #ff4081; /* Change color on hover */
+    color: #d4f1a2; /* Change color on hover */
     transform: translateY(-5px); /* Lift the text slightly more */
     transition: all 0.3s ease; /* Smooth transition for hover effects */
 }

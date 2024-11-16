@@ -1,0 +1,4 @@
+.export-buttons .p-button:hover{
+    transform: translateY(-5px); /* Lift the text slightly more */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
