@@ -24,7 +24,9 @@ const Books: React.FC = () => {
                 setBooks(response.data);
                 setFilteredBooks(response.data);
             } catch (err) {
-                setError("Error fetching Books because the server is not running yet ... please reload a few times until the server is up");
+                setError("To ensure the website loads data correctly, please note that the server might take a few minutes to start, " +
+                        "as it is on a free plan. This may require you to refresh the page a few times until " +
+                        "the server is running and the data can be fetched properly. Thank you for your patience.");
             } finally {
                 setLoading(false);
             }
