@@ -69,6 +69,8 @@ const Search: React.FC<SearchProps> = ({ books, onSearch }) => {
 
     const clearSearch = () => {
         setSearchTerm('');
+        setSelectedSearch('All');
+        window.location.reload();
     }
 
     return (
